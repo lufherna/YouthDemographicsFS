@@ -2,6 +2,10 @@
 var express = require('express');
 var router = express.Router();
 // what is the plan with the model.js?
+// models they should be handling database queries
+// call the route and call the query at the same time
+// handlebars is under view
+// from model to controller to view
 var various = require('../models/model.js');
 
 // create route. we need to redirect...always

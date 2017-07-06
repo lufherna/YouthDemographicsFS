@@ -10,17 +10,19 @@ To run this file, we do the following in our Terminal:
 
 */
 
--- Create the youth_demographics and specified it for use.
-CREATE DATABASE youth_demographics;
-USE youth_demographics;
+-- Create the happiness chart database and specified it for use.
+/*CREATE DATABASE Happiness_Chart;*/
+USE Happiness_Chart;
 
 -- Create the table plans.
-CREATE TABLE plans
+CREATE TABLE Happiness_Stats
 (
-id int NOT NULL AUTO_INCREMENT,
-plan varchar(255) NOT NULL,
+id INT(10) AUTO_INCREMENT,
+country varchar(255) NOT NULL,
+happiness_rank INT(10) NOT NULL,
+happiness_score INT(10) NOT NULL,
+family INT(10) NOT NULL,
+life_expectancy INT(15) NOT NULL,
 PRIMARY KEY (id)
 );
 
--- Insert a set of records.
-INSERT INTO plans (plan) VALUES ('Plan to fight a ninja.');

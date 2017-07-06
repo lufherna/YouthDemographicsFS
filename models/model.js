@@ -33,6 +33,7 @@ connection.query('SELECT * FROM happiness_stats', function(err, data) {
 })
 
 // shows the sql data in object notation
+// as of now the code below isn't working. getting a can't get error 
 app.get('/', function(req, res) {
 	connection.query('SELECT * FROM happiness_stats;', function(err, data) {
 		if (err) {
@@ -45,7 +46,7 @@ app.get('/', function(req, res) {
 });
 
 // allows users to insert data into sql database
-app.post('/', function(req, res) {
+/*app.post('/', function(req, res) {
 	connection.query('INSERT INTO happiness_stats (stats) VALUES (?)', [req.body.stats],
 		function(err, result) {
 			if (err) {
@@ -66,3 +67,15 @@ app.post('/delete', function(req, res) {
 			res.redirect('/')
 		});
 	});
+
+// allows users to update
+app.post('/update', function(req, res) {
+	connection.query('UPDATE happiness_stats SET stats = ? WHERE id = ?', 
+		[req.body.plan, req.body.id], function(err, result) {
+			if(err) {
+				throw(err)
+			}
+
+			res.redirect('/')
+		})
+	})*/
