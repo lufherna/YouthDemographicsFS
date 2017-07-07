@@ -33,31 +33,29 @@ connection.query('SELECT * FROM 2017_happinesslevels', function(err, data) {
 })
 
 // shows the sql data in object notation
-// as of now the code below isn't working. getting a can't get error late 7/5
 app.get('/', function(req, res) {
 	connection.query('SELECT * FROM 2017_happinesslevels;', function(err, data) {
 		if (err) {
 			throw err
 		}
-		// res.render('random info', { happiness_stats: data});
-		// not getting a response back, not sure why
-		// res.render({ 2017_happinesslevels: data});
-	});
-});
+		 res.render('hapiness levels', { 2017_happinesslevels: data });
+		}); // end of query connection
+	});// end of API
 
 // allows users to insert data into sql database
 app.post('/', function(req, res) {
-	connection.query('INSERT INTO `2017_happinesslevels` (stats) VALUES (?)', [req.body.stats],
+	connection.query('INSERT INTO `2017_happinesslevels` (Country, Happiness.Rank, Happiness.Score) VALUES (?, ?, ?)', 
+		[req.body.Country, req.body.Happiness.Rank, req.body.Happiness.Score],
 		function(err, result) {
 			if (err) {
 				throw err
 			}
-			res.redirect('/')
+		res.redirect('/')
 		};
 	});
 
 // allows user to delete 
-app.post('/delete', function(req, res) {
+app.delete('/:id', function(req, res) {
 	connection.query('DELETE FROM `2017_happinesslevels` WHERE id = ?', [req.body.id],
 		function(err, result) {
 			if(err) {
