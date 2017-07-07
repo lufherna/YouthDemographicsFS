@@ -11,7 +11,7 @@ To run this file, we do the following in our Terminal:
 */
 
 -- Create the happiness chart database and specified it for use.
-/*CREATE DATABASE Happiness_Chart;*/
+CREATE DATABASE Happiness_Chart;
 USE happines_levels;
 
 -- Create the table plans.
