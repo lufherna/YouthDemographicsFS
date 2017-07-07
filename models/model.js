@@ -34,7 +34,7 @@ connection.query('SELECT * FROM 2017_happinesslevels', function(err, data) {
 
 // shows the sql data in object notation
 // as of now the code below isn't working. getting a can't get error late 7/5
-app.get('/', misc, function(req, res) {
+app.get('/', function(req, res) {
 	connection.query('SELECT * FROM 2017_happinesslevels;', function(err, data) {
 		if (err) {
 			throw err
@@ -46,8 +46,8 @@ app.get('/', misc, function(req, res) {
 });
 
 // allows users to insert data into sql database
-/*app.post('/', function(req, res) {
-	connection.query('INSERT INTO happiness_stats (stats) VALUES (?)', [req.body.stats],
+app.post('/', function(req, res) {
+	connection.query('INSERT INTO `2017_happinesslevels` (stats) VALUES (?)', [req.body.stats],
 		function(err, result) {
 			if (err) {
 				throw err
@@ -58,7 +58,7 @@ app.get('/', misc, function(req, res) {
 
 // allows user to delete 
 app.post('/delete', function(req, res) {
-	connection.query('DELETE FROM stats WHERE id = ?', [req.body.id],
+	connection.query('DELETE FROM `2017_happinesslevels` WHERE id = ?', [req.body.id],
 		function(err, result) {
 			if(err) {
 				throw err;
@@ -70,12 +70,12 @@ app.post('/delete', function(req, res) {
 
 // allows users to update
 app.post('/update', function(req, res) {
-	connection.query('UPDATE happiness_stats SET stats = ? WHERE id = ?', 
-		[req.body.plan, req.body.id], function(err, result) {
+	connection.query('UPDATE `2017_happinesslevels` SET stats = ? WHERE id = ?', 
+		[req.body.stats, req.body.id], function(err, result) {
 			if(err) {
 				throw(err)
 			}
 
 			res.redirect('/')
 		})
-	})*/
+	})

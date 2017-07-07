@@ -14,12 +14,12 @@ To run this file, we do the following in our Terminal:
 /*CREATE DATABASE Happiness_Chart;*/
 USE happines_levels;
 
-/*-- Create the table plans.
+-- Create the table plans.
 CREATE TABLE Overall_Happiness
 (
 id INT(10) AUTO_INCREMENT NOT NULL,
 PRIMARY KEY (id)
-);*/
+);
 
 SELECT 
 INNER JOIN overall_happiness ON 2017_happinesslevels = overall_happiness;

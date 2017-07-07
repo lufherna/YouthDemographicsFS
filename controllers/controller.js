@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
 });
 
 // index page renders all various items
-router.get('/index', function(req, res) {
+router.get('/', function(req, res) {
 	various.selectAll(function(data) {
 		var randomObject = { various: data};
 		res.render('index', randomObject);
@@ -21,14 +21,14 @@ router.get('/index', function(req, res) {
 });
 
 // create a new item
-router.post('/various/create', function(req, res) {
+router.post('/create', function(req, res) {
 	various.insertVarious(function() {
 		res.redirect('/index')
 	});
 });
 
 // update a new various item
-router.post('/various/update/:id', function(req, res) {
+router.post('/:id', function(req, res) {
 	various.updateVarious(req.params.id, function() {
 		res.redirect('/index')
 	});

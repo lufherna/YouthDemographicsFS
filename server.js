@@ -2,6 +2,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var exphbs = require('express-handlebars')
 
 var app = express();
 
@@ -10,7 +11,10 @@ app.use(express.static(process.cwd() + '/public'));
 app.use(express.static('public'));
 
 // parse data
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
+app.use(bodyParser.text());
+app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 
 // handlebars
 var exphbs = require('express-handlebars');

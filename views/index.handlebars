@@ -1,19 +1,19 @@
-<h1>Day Planner</h1>
+<h1>Happiness Level</h1>
 
 <ul>
-	{{#each plans}}
+	{{#each }}
 		<li>
 			<p>
 				{{this.id}}. {{this.plan}}
 
 			<form action="/delete/" method="POST">
 			<input type="hidden" name="id" value="{{this.id}}" />
-				<button type="submit">Delete Plan!</button>
+				<button type="submit">Delete What Happiness You Created lol!</button>
 			</form>
 			<form action="/update" method="POST" class="button-size">
 				<input type="hidden" name="id" value="{{this.id}}" />
-				<textarea type="text" name="plan" placeholder="plan">{{this.plan}}</textarea>
-				<button type="submit">Update Plan!</button>
+				<textarea type="text" name="happiness" placeholder="happiness">{{this.happiness}}</textarea>
+				<button type="submit">Update Happiness!</button>
 			</form>
 
 			</p>
@@ -21,7 +21,7 @@
 	{{/each}}
 </ul>
 
-<h2>Create a Plan</h2>
+<h2>Add a Happiness Level</h2>
 <form method="post" action="/" class="button-size">
 	<textarea type="text" name="plan"></textarea>
 	<button type="submit">Add to the Happiness!</button>
