@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 	host	: "localhost",
 	user	: "root",
 	password: "root",
-	database: "happiness_chart"
+	database: "happines_levels"
 }); // end of connection to mySQL database
 
 // test the connection to the sql database
@@ -24,7 +24,7 @@ connection.connect(function(err) {
 
 // below was used to test out the connection 
 // we now know that the connection is coming back with data
-connection.query('SELECT * FROM happiness_stats', function(err, data) {
+connection.query('SELECT * FROM 2017_happinesslevels', function(err, data) {
 	if (err) {
 		throw err
 	}
@@ -33,15 +33,15 @@ connection.query('SELECT * FROM happiness_stats', function(err, data) {
 })
 
 // shows the sql data in object notation
-// as of now the code below isn't working. getting a can't get error 
-app.get('/', function(req, res) {
-	connection.query('SELECT * FROM happiness_stats;', function(err, data) {
+// as of now the code below isn't working. getting a can't get error late 7/5
+app.get('/', misc, function(req, res) {
+	connection.query('SELECT * FROM 2017_happinesslevels;', function(err, data) {
 		if (err) {
 			throw err
 		}
 		// res.render('random info', { happiness_stats: data});
 		// not getting a response back, not sure why
-		res.render( { happiness_stats: data})
+		// res.render({ 2017_happinesslevels: data});
 	});
 });
 

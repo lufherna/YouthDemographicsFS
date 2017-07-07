@@ -1,12 +1,11 @@
 // NPM dependencies
 var express = require('express');
 var router = express.Router();
-// what is the plan with the model.js?
 // models they should be handling database queries
 // call the route and call the query at the same time
 // handlebars is under view
 // from model to controller to view
-var various = require('../models/model.js');
+var model = require('../models/model.js');
 
 // create route. we need to redirect...always
 router.get('/', function(req, res) {
@@ -23,13 +22,13 @@ router.get('/index', function(req, res) {
 
 // create a new item
 router.post('/various/create', function(req, res) {
-	various.insertVarious(req.body.various_name, function() {
+	various.insertVarious(function() {
 		res.redirect('/index')
 	});
 });
 
 // update a new various item
-router.post('/various/update', function(req, res) {
+router.post('/various/update/:id', function(req, res) {
 	various.updateVarious(req.params.id, function() {
 		res.redirect('/index')
 	});

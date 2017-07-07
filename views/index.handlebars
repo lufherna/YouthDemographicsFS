@@ -1,0 +1,28 @@
+<h1>Day Planner</h1>
+
+<ul>
+	{{#each plans}}
+		<li>
+			<p>
+				{{this.id}}. {{this.plan}}
+
+			<form action="/delete/" method="POST">
+			<input type="hidden" name="id" value="{{this.id}}" />
+				<button type="submit">Delete Plan!</button>
+			</form>
+			<form action="/update" method="POST" class="button-size">
+				<input type="hidden" name="id" value="{{this.id}}" />
+				<textarea type="text" name="plan" placeholder="plan">{{this.plan}}</textarea>
+				<button type="submit">Update Plan!</button>
+			</form>
+
+			</p>
+		</li>
+	{{/each}}
+</ul>
+
+<h2>Create a Plan</h2>
+<form method="post" action="/" class="button-size">
+	<textarea type="text" name="plan"></textarea>
+	<button type="submit">Add to the Happiness!</button>
+</form>

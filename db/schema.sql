@@ -12,17 +12,15 @@ To run this file, we do the following in our Terminal:
 
 -- Create the happiness chart database and specified it for use.
 /*CREATE DATABASE Happiness_Chart;*/
-USE Happiness_Chart;
+USE happines_levels;
 
--- Create the table plans.
-CREATE TABLE Happiness_Stats
+/*-- Create the table plans.
+CREATE TABLE Overall_Happiness
 (
-id INT(10) AUTO_INCREMENT,
-country varchar(255) NOT NULL,
-happiness_rank INT(10) NOT NULL,
-happiness_score INT(10) NOT NULL,
-family INT(10) NOT NULL,
-life_expectancy INT(15) NOT NULL,
+id INT(10) AUTO_INCREMENT NOT NULL,
 PRIMARY KEY (id)
-);
+);*/
+
+SELECT 
+INNER JOIN overall_happiness ON 2017_happinesslevels = overall_happiness;
 
